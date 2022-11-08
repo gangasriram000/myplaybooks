@@ -1,0 +1,17 @@
+---
+
+- hosts: webservers
+  user: ansible
+  connection: ssh
+  become: yes
+
+
+  tasks:
+    - name: creating a file with ansible playbook
+      file: path=/tmp/sri.txt state=file
+
+    - name: creating a directory with ansible playbook
+      file: path=/tmp/aaryadir state=directory
+
+    - name: copying a file to hosts
+      copy: src=./aassdf dest=/home/ansible

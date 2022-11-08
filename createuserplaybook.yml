@@ -1,0 +1,13 @@
+--- #user creation
+
+- name: User-creation Playbook
+  hosts: all
+  become: yes
+  user: ansible
+  connection: ssh
+
+
+  tasks:
+    - name: Creating a user
+      user:
+        name: ram

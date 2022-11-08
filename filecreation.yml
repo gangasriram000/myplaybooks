@@ -1,0 +1,14 @@
+--- # File creation
+
+- hosts: webservers
+  user: ansible
+  become: yes
+  connection: ssh
+ 
+
+  tasks:
+  -  name: Creating a file
+     file:
+       path: /home/ansible/demofile
+       state: touch
+

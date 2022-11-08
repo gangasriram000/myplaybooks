@@ -1,0 +1,36 @@
+---
+
+- name: My condtionals playbook
+  hosts: all
+  become: true
+  connection: ssh
+
+
+  tasks:
+    - name: install httpd package
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == "Redhat"
+     
+    - name: Start httpd service
+      service:
+        name: httpd
+        state: started
+      when: ansible_os_family == "Redhat"
+      
+
+    - name: install apache2 package
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Debian"
+     
+    - name: Start apache2
+      service:
+        name: apache2
+        state: started
+      when: ansible_os_family == "Debian"    
+
+
+  

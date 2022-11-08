@@ -1,0 +1,12 @@
+--- # s/w installation
+- name: my playbook
+  hosts: all
+  become: true
+  user: ansible
+  connection: ssh
+
+  tasks: 
+    - name: Install packges into hosts
+      yum:
+        name: tree
+        state: present  

@@ -1,0 +1,13 @@
+--- #Deletion of directory
+
+- hosts: all
+  user: ansible
+  become: yes 
+  connection: ssh 
+  
+
+  tasks:
+    - file:
+        path : /home/ansible/ramdir 
+        state: absent
+        
